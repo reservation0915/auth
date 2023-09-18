@@ -15,6 +15,7 @@ import java.util.UUID;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/myuser")
+@CrossOrigin(methods = {RequestMethod.GET,RequestMethod.POST},allowCredentials = "true",originPatterns = "*")
 public class MyUserController {
     private final MyUserService myUserService;
     @PostMapping

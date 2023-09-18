@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin(methods = {RequestMethod.GET,RequestMethod.POST},allowCredentials = "true",originPatterns = "*")
 @RequestMapping("/api/v1/auth")
 public class AuthController {
     private final UserService userService;
@@ -30,10 +31,9 @@ public class AuthController {
     public TokenInfoResponse me(@AuthenticationPrincipal TokenInfo tokenInfo) {
         return userService.getMe(tokenInfo);
     }
-    @GetMapping("/getTokenInfo")
+    @GetMapping("/getTokenInfo/{token}")
     public TokenInfo getTokenInfo(@PathVariable("token") String token)
     {
-
         return userService.getTokenInfo(token);
     }
 }

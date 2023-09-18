@@ -27,9 +27,9 @@ public class SecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable);
         http.authorizeHttpRequests(authorize -> authorize
                 .requestMatchers(
-                        AntPathRequestMatcher.antMatcher("/api/v1/auth/signup"),
-                        AntPathRequestMatcher.antMatcher("/api/v1/auth/test"),
-                        AntPathRequestMatcher.antMatcher("/api/v1/auth/login"),
+                        AntPathRequestMatcher.antMatcher("/api/v1/auth/**"),
+//                        AntPathRequestMatcher.antMatcher("/api/v1/auth/test"),
+//                        AntPathRequestMatcher.antMatcher("/api/v1/auth/login"),
                         AntPathRequestMatcher.antMatcher("/api/v1/myuser/**"),
                         AntPathRequestMatcher.antMatcher("/actuator/**")
                 ).permitAll()
